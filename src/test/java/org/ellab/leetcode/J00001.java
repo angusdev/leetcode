@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
  * You can return the answer in any order.
  * 
  * @see <a href="https://leetcode.com/problems/add-two-numbers/">leetcode.com</a>
- *
  */
 public class J00001 {
     class Solution {
