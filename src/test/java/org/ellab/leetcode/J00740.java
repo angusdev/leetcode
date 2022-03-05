@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
  * Return the maximum number of points you can earn by applying the above operation some number of times.
  * 
  * @see <a href="https://leetcode.com/problems/delete-and-earn/">leetcode.com</a>
- *
  */
 public class J00740 {
     /**
