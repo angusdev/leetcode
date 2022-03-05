@@ -103,7 +103,6 @@ public class J00002 {
     }
 
     private void doTest(Solution solution, int[] l1, int[] l2, int[] expected) {
-
         int[] actual = null;
         boolean pass = false;
         Exception unexpectedEx = null;
@@ -125,6 +124,7 @@ public class J00002 {
         }
 
         if (!pass) {
+            System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
             ArrayUtils.printlnArray(l1);
             System.out.print("           ");

@@ -79,6 +79,7 @@ public class J00121 {
         }
 
         if (!pass) {
+            System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
             ArrayUtils.printlnArray(prices);
             System.out.println("Expected : " + expected);

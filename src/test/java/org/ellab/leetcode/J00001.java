@@ -55,12 +55,12 @@ public class J00001 {
         }
     }
 
-    private void doTest(Solution sulution, int[] nums, int target, int[] expected) {
+    private void doTest(Solution solution, int[] nums, int target, int[] expected) {
         int[] actual = null;
         boolean pass = false;
         Exception unexpectedEx = null;
         try {
-            actual = sulution.twoSum(nums, target);
+            actual = solution.twoSum(nums, target);
             if (nums[actual[0]] + nums[actual[1]] == target) {
                 if (expected != null) {
                     if (actual[0] == expected[0] && actual[1] == expected[1] && actual.length == expected.length) {
@@ -79,6 +79,7 @@ public class J00001 {
         }
 
         if (!pass) {
+            System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
             ArrayUtils.printlnArray(nums);
             System.out.println("           target=" + target);
