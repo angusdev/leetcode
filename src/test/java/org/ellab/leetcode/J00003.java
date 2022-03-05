@@ -25,16 +25,16 @@ public class J00003 {
      * a            1       1    100000          1
      * ab           2       1    120000          1
      * abc          3       1    123000          1
-     * abca         4       2    423000          3
-     * abcac        5       4    425000          3
+     * abca         4       2    423000          3  set start to 2, just after the previous a, maxlen = i-start = 3
+     * abcac        5       4    425000          3  set start to 4 
      * abcacd       6       4    425600          3
      * abcacde      7       4    425670          3
      * abcacdef     8       4    425678          3              
-     * abcacdefb    9       4    495678          3   (b won't reset start since it's prev pos is < start
-     * end                                       6   s.length() - start = 10 - 4 = 6
+     * abcacdefb    9       4    495678          3  not to set the start as b's's prev pos (2) < start
+     * end                                       6  maxlen = s.length()-start = 10-4 = 6
      *
      * abcacdefb    9       4    495678          3
-     * abcacdefbb  10      10                    6   i - start = 10 - 4 = 6
+     * abcacdefbb  10      10                    6  maxlen = i-start = 10-4 = 6
      * </pre>
      */
     class Solution {
