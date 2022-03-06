@@ -114,15 +114,11 @@ public class J00001 {
 
     private void testRandomCases(Solution solution, int tries, int maxArraySize, int maxNum) {
         for (int i = 0; i < tries; i++) {
-            final int arraySize = NumberUtils.random(2, maxArraySize);
-            int[] nums = new int[arraySize];
-            for (int j = 0; j < arraySize; j++) {
-                nums[j] = NumberUtils.randomSigned(maxNum);
-            }
-            int expected1 = NumberUtils.random(arraySize - 1);
-            int expected2 = NumberUtils.random(arraySize - 1);
+            int[] nums = ArrayUtils.randomIntArray(2, maxArraySize, -maxNum, maxNum);
+            int expected1 = NumberUtils.random(nums.length - 1);
+            int expected2 = NumberUtils.random(nums.length - 1);
             while (expected2 == expected1) {
-                expected2 = NumberUtils.random(arraySize - 1);
+                expected2 = NumberUtils.random(nums.length - 1);
             }
             int target = nums[expected1] + nums[expected2];
 

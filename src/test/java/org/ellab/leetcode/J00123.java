@@ -195,12 +195,7 @@ public class J00123 {
 
     private void testRandomCases(Solution solution, int tries, int maxArraySize, int maxNum) {
         for (int i = 0; i < tries; i++) {
-            final int arraySize = NumberUtils.random(2, maxArraySize);
-            int[] prices = new int[arraySize];
-            for (int j = 0; j < arraySize; j++) {
-                prices[j] = NumberUtils.random(maxNum);
-            }
-
+            int[] prices = ArrayUtils.randomIntArray(2, maxArraySize, 0, maxNum);
             doTest(solution, prices, new BruteForce().maxProfit(prices));
         }
     }
@@ -224,10 +219,7 @@ public class J00123 {
         int tries = 10000;
         int arraySize = 10000;
         int maxNum = 100000;
-        int[] prices = new int[arraySize];
-        for (int i = 0; i < arraySize; i++) {
-            prices[i] = NumberUtils.randomSigned(maxNum);
-        }
+        int[] prices = ArrayUtils.randomIntArray(arraySize, arraySize, 0, maxNum);
         testPerformance(new Solution(), tries, prices);
         testPerformance(new SimpleSolution(), tries, prices);
         testPerformance(new BruteForce(), tries / 100, prices);
