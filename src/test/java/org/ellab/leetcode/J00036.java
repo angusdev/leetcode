@@ -23,7 +23,7 @@ public class J00036 {
         public boolean isValidSudoku(char[][] board) {
             boolean[] horz = new boolean[137];
             boolean[] vert = new boolean[137];
-            boolean[] square = new boolean[137];
+            boolean[] box = new boolean[137];
 
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -43,12 +43,12 @@ public class J00036 {
                     }
                     vert[v] = true;
 
-                    int s = (i / 3) * 3 + (j / 3);
-                    s = (s << 4) + n;
-                    if (square[s]) {
+                    int b = (i / 3) * 3 + (j / 3);
+                    b = (b << 4) + n;
+                    if (box[b]) {
                         return false;
                     }
-                    square[s] = true;
+                    box[b] = true;
                 }
             }
 
@@ -61,7 +61,7 @@ public class J00036 {
         public boolean isValidSudoku(char[][] board) {
             boolean[] horz = new boolean[81];
             boolean[] vert = new boolean[81];
-            boolean[] square = new boolean[81];
+            boolean[] box = new boolean[81];
 
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -81,12 +81,12 @@ public class J00036 {
                     }
                     vert[v] = true;
 
-                    int s = (i / 3) * 3 + (j / 3);
-                    s = s * 9 + n;
-                    if (square[s]) {
+                    int b = (i / 3) * 3 + (j / 3);
+                    b = b * 9 + n;
+                    if (box[b]) {
                         return false;
                     }
-                    square[s] = true;
+                    box[b] = true;
                 }
             }
 
@@ -99,7 +99,7 @@ public class J00036 {
         public boolean isValidSudoku(char[][] board) {
             boolean[][] horz = new boolean[9][9];
             boolean[][] vert = new boolean[9][9];
-            boolean[][] square = new boolean[9][9];
+            boolean[][] box = new boolean[9][9];
 
             for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 9; j++) {
@@ -117,11 +117,11 @@ public class J00036 {
                     }
                     vert[j][n] = true;
 
-                    int s = (i / 3) * 3 + (j / 3);
-                    if (square[s][n]) {
+                    int b = (i / 3) * 3 + (j / 3);
+                    if (box[b][n]) {
                         return false;
                     }
-                    square[s][n] = true;
+                    box[b][n] = true;
                 }
             }
 
