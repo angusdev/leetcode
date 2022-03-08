@@ -80,12 +80,12 @@ public class J00001 {
         if (!pass) {
             System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
-            ArrayUtils.printlnArray(nums);
+            Utils.printlnArray(nums);
             System.out.println("           target=" + target);
             System.out.print("Expected : ");
-            ArrayUtils.printlnArray(expected);
+            Utils.printlnArray(expected);
             System.out.print("Actual   : ");
-            ArrayUtils.printlnArray(actual);
+            Utils.printlnArray(actual);
             if (unexpectedEx != null) {
                 unexpectedEx.printStackTrace();
             }
@@ -114,11 +114,11 @@ public class J00001 {
 
     private void testRandomCases(Solution solution, int tries, int maxArraySize, int maxNum) {
         for (int i = 0; i < tries; i++) {
-            int[] nums = ArrayUtils.randomIntArray(2, maxArraySize, -maxNum, maxNum);
-            int expected1 = NumberUtils.random(nums.length - 1);
-            int expected2 = NumberUtils.random(nums.length - 1);
+            int[] nums = Utils.randomIntArray(2, maxArraySize, -maxNum, maxNum);
+            int expected1 = Utils.random(nums.length - 1);
+            int expected2 = Utils.random(nums.length - 1);
             while (expected2 == expected1) {
-                expected2 = NumberUtils.random(nums.length - 1);
+                expected2 = Utils.random(nums.length - 1);
             }
             int target = nums[expected1] + nums[expected2];
 

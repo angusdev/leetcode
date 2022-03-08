@@ -128,13 +128,13 @@ public class J00002 {
         if (!pass) {
             System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
-            ArrayUtils.printlnArray(l1);
+            Utils.printlnArray(l1);
             System.out.print("           ");
-            ArrayUtils.printlnArray(l2);
+            Utils.printlnArray(l2);
             System.out.print("Expected : ");
-            ArrayUtils.printlnArray(expected);
+            Utils.printlnArray(expected);
             System.out.print("Actual   : ");
-            ArrayUtils.printlnArray(actual);
+            Utils.printlnArray(actual);
             if (unexpectedEx != null) {
                 unexpectedEx.printStackTrace();
             }

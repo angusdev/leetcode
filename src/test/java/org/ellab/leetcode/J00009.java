@@ -164,7 +164,7 @@ public class J00009 {
 
     private void testRandomCases(Solution solution, int tries, int maxNum) {
         for (int i = 0; i < tries; i++) {
-            int x = NumberUtils.randomSigned(maxNum);
+            int x = Utils.randomSigned(maxNum);
             doTest(solution, x, new Solution().isPalindrome(x));
         }
     }

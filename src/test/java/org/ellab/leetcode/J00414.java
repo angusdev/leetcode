@@ -148,7 +148,7 @@ public class J00414 {
         if (!pass) {
             System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
-            ArrayUtils.printlnArray(nums);
+            Utils.printlnArray(nums);
             System.out.println("Expected : " + expected);
             System.out.println("Actual   : " + actual);
             if (unexpectedEx != null) {
@@ -185,7 +185,7 @@ public class J00414 {
 
     private void testRandomCases(Solution solution, int tries, int maxArraySize, int maxNum) {
         for (int i = 0; i < tries; i++) {
-            int[] nums = ArrayUtils.randomIntArray(1, maxArraySize, -maxNum, maxNum);
+            int[] nums = Utils.randomIntArray(1, maxArraySize, -maxNum, maxNum);
             doTest(solution, nums, new BruteForce().thirdMax(nums));
         }
     }
@@ -209,7 +209,7 @@ public class J00414 {
         int tries = 100000;
         int arraySize = 10000;
         int maxNum = 100000;
-        int[] nums = ArrayUtils.randomIntArray(arraySize, arraySize, 0, maxNum);
+        int[] nums = Utils.randomIntArray(arraySize, arraySize, 0, maxNum);
         testPerformance(new Solution(), tries, nums);
         testPerformance(new SolutionUseCounter(), tries, nums);
         testPerformance(new SolutionUseLong(), tries, nums);

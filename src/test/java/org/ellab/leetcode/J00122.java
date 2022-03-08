@@ -48,7 +48,7 @@ public class J00122 {
         if (!pass) {
             System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
-            ArrayUtils.printlnArray(prices);
+            Utils.printlnArray(prices);
             System.out.println("Expected : " + expected);
             System.out.println("Actual   : " + actual);
             if (unexpectedEx != null) {

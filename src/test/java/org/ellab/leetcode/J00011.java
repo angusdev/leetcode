@@ -188,7 +188,7 @@ public class J00011 {
         if (!pass) {
             System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
-            ArrayUtils.printlnArray(height);
+            Utils.printlnArray(height);
             System.out.println("Expected : " + expected);
             System.out.println("Actual   : " + actual);
             if (unexpectedEx != null) {
@@ -219,7 +219,7 @@ public class J00011 {
 
     private void testRandomCases(Solution solution, int tries, int maxArraySize, int maxNum) {
         for (int i = 0; i < tries; i++) {
-            int[] height = ArrayUtils.randomIntArray(2, maxArraySize, 0, maxNum);
+            int[] height = Utils.randomIntArray(2, maxArraySize, 0, maxNum);
 
             doTest(solution, height, new BruteForce().maxArea(height));
         }
@@ -244,7 +244,7 @@ public class J00011 {
         int tries = 1000;
         int arraySize = 100000;
         int maxNum = 10000;
-        int[] height = ArrayUtils.randomIntArray(arraySize, arraySize, 0, maxNum);
+        int[] height = Utils.randomIntArray(arraySize, arraySize, 0, maxNum);
         testPerformance(new Solution(), tries, height);
         testPerformance(new Solution1(), tries, height);
         testPerformance(new Solution2(), tries, height);

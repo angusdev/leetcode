@@ -198,10 +198,10 @@ public class J00003 {
 
     private void testRandomCases(Solution solution, int tries, int maxArraySize) {
         for (int i = 0; i < tries; i++) {
-            final int arraySize = NumberUtils.random(2, maxArraySize);
+            final int arraySize = Utils.random(2, maxArraySize);
             char[] array = new char[arraySize];
             for (int j = 0; j < arraySize; j++) {
-                array[i] = (char) (NumberUtils.random(25) + 'a');
+                array[i] = (char) (Utils.random(25) + 'a');
             }
             String s = String.valueOf(array);
 
@@ -229,7 +229,7 @@ public class J00003 {
         int arraySize = 10000;
         char[] array = new char[arraySize];
         for (int i = 0; i < arraySize; i++) {
-            array[i] = (char) (NumberUtils.random(25) + 'a');
+            array[i] = (char) (Utils.random(25) + 'a');
         }
         String s = String.valueOf(array);
         testPerformance(new Solution(), tries, s);

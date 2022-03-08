@@ -52,7 +52,7 @@ public class J00413 {
         if (!pass) {
             System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
-            ArrayUtils.printlnArray(nums);
+            Utils.printlnArray(nums);
             System.out.println("Expected : " + expected);
             System.out.println("Actual   : " + actual);
             if (unexpectedEx != null) {

@@ -117,13 +117,13 @@ public class J00021 {
         if (!pass) {
             System.out.println(solution.getClass().getName());
             System.out.print("Fail     : ");
-            ArrayUtils.printlnArray(list1);
+            Utils.printlnArray(list1);
             System.out.print("           ");
-            ArrayUtils.printlnArray(list2);
+            Utils.printlnArray(list2);
             System.out.print("Expected : ");
-            ArrayUtils.printlnArray(expected);
+            Utils.printlnArray(expected);
             System.out.print("Actual   : ");
-            ArrayUtils.printlnArray(actual);
+            Utils.printlnArray(actual);
             if (unexpectedEx != null) {
                 unexpectedEx.printStackTrace();
             }
