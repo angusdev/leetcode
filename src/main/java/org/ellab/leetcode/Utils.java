@@ -2,6 +2,9 @@ package org.ellab.leetcode;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Utils {
     public static void printlnArray(int[] array) {
@@ -49,6 +52,41 @@ public class Utils {
 
         System.out.println(header);
         System.out.println(body);
+    }
+
+    public static int[] integerArrayToIntArray(Integer[] src) {
+        if (src == null) {
+            return null;
+        }
+
+        int[] desc = new int[src.length];
+        for (int i = 0; i < src.length; i++) {
+            desc[i] = src[i];
+        }
+
+        return desc;
+    }
+
+    public static Integer[] intArrayToIntegerArray(int[] src) {
+        if (src == null) {
+            return null;
+        }
+
+        Integer[] desc = new Integer[src.length];
+        for (int i = 0; i < src.length; i++) {
+            desc[i] = src[i];
+        }
+
+        return desc;
+    }
+
+    public static boolean equalsUnordered(int[] n1, int[] n2) {
+        List<Integer> list1 = Arrays.asList(intArrayToIntegerArray(n1));
+        List<Integer> list2 = Arrays.asList(intArrayToIntegerArray(n2));
+        Collections.sort(list1);
+        Collections.sort(list2);
+
+        return list1.equals(list2);
     }
 
     public static int[] randomIntArray(int minArraySize, int maxArraySize, int minNum, int maxNum) {
