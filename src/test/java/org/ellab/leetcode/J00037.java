@@ -214,14 +214,6 @@ public class J00037 {
 
     }
 
-    private void copyBoard(char[][] dest, char[][] src) {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                dest[i][j] = src[i][j];
-            }
-        }
-    }
-
     private void printBoard(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             if (i % 3 == 0) {
@@ -236,22 +228,14 @@ public class J00037 {
     }
 
     private void doTest(Solution solution, char[][] board, char[][] expected) {
-        char[][] actual = new char[9][9];
-        copyBoard(actual, board);
+        char[][] actual = Utils.clone(board);
 
         boolean pass = false;
         int failRow = -1;
         Exception unexpectedEx = null;
         try {
             solution.solveSudoku(actual);
-            pass = true;
-            for (int i = 0; i < 9; i++) {
-                if (!String.valueOf(actual[i]).equals(String.valueOf(expected[i]))) {
-                    failRow = i;
-                    pass = false;
-                    break;
-                }
-            }
+            pass = Utils.equals(expected, actual);
         }
         catch (Exception ex) {
             unexpectedEx = ex;
@@ -313,8 +297,7 @@ public class J00037 {
     }
 
     private void testPerformance(Solution solution, int tries, char[][] board) {
-        char[][] b = new char[9][9];
-        copyBoard(b, board);
+        char[][] b = Utils.clone(board);
         long start = System.nanoTime();
         for (int i = 0; i < tries; i++) {
             solution.solveSudoku(b);

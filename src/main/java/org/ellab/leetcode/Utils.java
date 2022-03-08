@@ -80,6 +80,70 @@ public class Utils {
         return desc;
     }
 
+    public static int[][] clone(int[][] src) {
+        int[][] dest = new int[src.length][];
+
+        for (int i = 0; i < src.length; i++) {
+            dest[i] = new int[src[i].length];
+            for (int j = 0; j < src[i].length; j++) {
+                dest[i][j] = src[i][j];
+            }
+        }
+
+        return dest;
+    }
+
+    public static char[][] clone(char[][] src) {
+        char[][] dest = new char[src.length][];
+
+        for (int i = 0; i < src.length; i++) {
+            dest[i] = new char[src[i].length];
+            for (int j = 0; j < src[i].length; j++) {
+                dest[i][j] = src[i][j];
+            }
+        }
+
+        return dest;
+    }
+
+    public static boolean equals(int[][] n1, int[][] n2) {
+        if (n1.length != n2.length) {
+            return false;
+        }
+
+        for (int i = 0; i < n1.length; i++) {
+            if (n1[i].length != n2[i].length) {
+                return false;
+            }
+            for (int j = 0; j < n1[i].length; j++) {
+                if (n1[i][j] != n2[i][j]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean equals(char[][] n1, char[][] n2) {
+        if (n1.length != n2.length) {
+            return false;
+        }
+
+        for (int i = 0; i < n1.length; i++) {
+            if (n1[i].length != n2[i].length) {
+                return false;
+            }
+            for (int j = 0; j < n1[i].length; j++) {
+                if (n1[i][j] != n2[i][j]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     public static boolean equalsUnordered(int[] n1, int[] n2) {
         List<Integer> list1 = Arrays.asList(intArrayToIntegerArray(n1));
         List<Integer> list2 = Arrays.asList(intArrayToIntegerArray(n2));
