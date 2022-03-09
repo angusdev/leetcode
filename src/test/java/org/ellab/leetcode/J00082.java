@@ -184,11 +184,6 @@ public class J00082 {
     }
 
     @Test
-    public void test() {
-        doTest(new Solution(), new int[] { 1, 1, 2, 3, 3 }, new int[] { 2 });
-    }
-
-    @Test
     public void testGivenCases() {
         final Solution solution = new Solution();
 
@@ -227,7 +222,6 @@ public class J00082 {
 
         int tries = 10000000;
         testPerformance(new Solution(), tries, nums);
-        testPerformance(new SolutionX(), tries, nums);
         testPerformance(new Solution2(), tries, nums);
         testPerformance(new BruteForce(), Math.max(1, tries / 10), nums);
     }
