@@ -106,19 +106,44 @@ public class Utils {
         return dest;
     }
 
-    public static boolean equals(int[][] n1, int[][] n2) {
+    public static boolean equals(int[] n1, int[] n2) {
+        if (n1 == null && n2 == null) {
+            return true;
+        }
+
+        if (n1 == null || n2 == null) {
+            return false;
+        }
+
         if (n1.length != n2.length) {
             return false;
         }
 
         for (int i = 0; i < n1.length; i++) {
-            if (n1[i].length != n2[i].length) {
+            if (n1[i] != n2[i]) {
                 return false;
             }
-            for (int j = 0; j < n1[i].length; j++) {
-                if (n1[i][j] != n2[i][j]) {
-                    return false;
-                }
+        }
+
+        return true;
+    }
+
+    public static boolean equals(int[][] n1, int[][] n2) {
+        if (n1 == null && n2 == null) {
+            return true;
+        }
+
+        if (n1 == null || n2 == null) {
+            return false;
+        }
+
+        if (n1.length != n2.length) {
+            return false;
+        }
+
+        for (int i = 0; i < n1.length; i++) {
+            if (!equals(n1[i], n2[i])) {
+                return false;
             }
         }
 
@@ -126,6 +151,14 @@ public class Utils {
     }
 
     public static boolean equals(char[][] n1, char[][] n2) {
+        if (n1 == null && n2 == null) {
+            return true;
+        }
+
+        if (n1 == null || n2 == null) {
+            return false;
+        }
+
         if (n1.length != n2.length) {
             return false;
         }
