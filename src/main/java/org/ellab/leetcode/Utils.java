@@ -7,6 +7,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class Utils {
+    public static final String STR_LOWER = "abcdefghijklmnopqrstuvwxyz";
+    public static final String STR_UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String STR_LETER = STR_LOWER + STR_UPPER;
+    public static final String STR_NUMBER = "0123456789";
+    public static final String STR_BINARY = "01";
+
     public static void printlnArray(int[] array) {
         if (array == null) {
             System.out.println(array);
@@ -291,6 +297,32 @@ public class Utils {
 
     public static long random(long min, long max) {
         return (long) (Math.random() * (max - min + 1)) + min;
+    }
+
+    public static String randomString(int len, String string) {
+        return randomString(len, len, string, true);
+    }
+
+    public static String randomString(int minLen, int maxLen, String string, boolean allowDuplicate) {
+        if (!allowDuplicate && maxLen > string.length()) {
+            throw new RuntimeException("!allowDuplicate && maxLen > string.length()");
+        }
+
+        int len = Utils.random(minLen, maxLen);
+        char[] ch = new char[len];
+
+        for (int i = 0; i < len; i++) {
+            if (allowDuplicate) {
+                ch[i] = string.charAt(Utils.random(0, string.length() - 1));
+            }
+            else {
+                int pos = Utils.random(0, string.length() - 1);
+                ch[i] = string.charAt(pos);
+                string = string.substring(0, pos) + string.substring(pos + 1);
+            }
+        }
+
+        return String.valueOf(ch);
     }
 
     public static String redirectSystemOutToString(Runnable runnable) {
