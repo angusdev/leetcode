@@ -23,7 +23,23 @@ public class Utils {
         System.out.println("}");
     }
 
-    public static void printlnArrayWithIndex(int[] array) {
+    public static void printlnArray(boolean[] array) {
+        if (array == null) {
+            System.out.println(array);
+            return;
+        }
+
+        System.out.print("{");
+        for (int i = 0; i < array.length; i++) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(array[i]);
+        }
+        System.out.println("}");
+    }
+
+    public static void printlnArrayWithIndex(Object[] array) {
         if (array == null) {
             System.out.println(array);
             return;
@@ -54,6 +70,14 @@ public class Utils {
         System.out.println(body);
     }
 
+    public static void printlnArrayWithIndex(int[] array) {
+        printlnArrayWithIndex(intArrayToIntegerArray(array));
+    }
+
+    public static void printlnArrayWithIndex(boolean[] array) {
+        printlnArrayWithIndex(boolArrayToBooleanArray(array));
+    }
+
     public static int[] integerArrayToIntArray(Integer[] src) {
         if (src == null) {
             return null;
@@ -73,6 +97,19 @@ public class Utils {
         }
 
         Integer[] desc = new Integer[src.length];
+        for (int i = 0; i < src.length; i++) {
+            desc[i] = src[i];
+        }
+
+        return desc;
+    }
+
+    public static Boolean[] boolArrayToBooleanArray(boolean[] src) {
+        if (src == null) {
+            return null;
+        }
+
+        Boolean[] desc = new Boolean[src.length];
         for (int i = 0; i < src.length; i++) {
             desc[i] = src[i];
         }
@@ -106,21 +143,21 @@ public class Utils {
         return dest;
     }
 
-    public static boolean equals(int[] n1, int[] n2) {
-        if (n1 == null && n2 == null) {
+    public static boolean equals(int[] a1, int[] a2) {
+        if (a1 == null && a2 == null) {
             return true;
         }
 
-        if (n1 == null || n2 == null) {
+        if (a1 == null || a2 == null) {
             return false;
         }
 
-        if (n1.length != n2.length) {
+        if (a1.length != a2.length) {
             return false;
         }
 
-        for (int i = 0; i < n1.length; i++) {
-            if (n1[i] != n2[i]) {
+        for (int i = 0; i < a1.length; i++) {
+            if (a1[i] != a2[i]) {
                 return false;
             }
         }
@@ -128,21 +165,21 @@ public class Utils {
         return true;
     }
 
-    public static boolean equals(int[][] n1, int[][] n2) {
-        if (n1 == null && n2 == null) {
+    public static boolean equals(boolean[] a1, boolean[] a2) {
+        if (a1 == null && a2 == null) {
             return true;
         }
 
-        if (n1 == null || n2 == null) {
+        if (a1 == null || a2 == null) {
             return false;
         }
 
-        if (n1.length != n2.length) {
+        if (a1.length != a2.length) {
             return false;
         }
 
-        for (int i = 0; i < n1.length; i++) {
-            if (!equals(n1[i], n2[i])) {
+        for (int i = 0; i < a1.length; i++) {
+            if (a1[i] != a2[i]) {
                 return false;
             }
         }
@@ -150,25 +187,69 @@ public class Utils {
         return true;
     }
 
-    public static boolean equals(char[][] n1, char[][] n2) {
-        if (n1 == null && n2 == null) {
+    public static int diff(boolean[] a1, boolean[] a2) {
+        if (a1 == null && a2 == null) {
+            return -1;
+        }
+
+        if (a1 == null || a2 == null) {
+            return 0;
+        }
+
+        if (a1.length != a2.length) {
+            return 0;
+        }
+
+        for (int i = 0; i < a1.length; i++) {
+            if (a1[i] != a2[i]) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static boolean equals(int[][] a1, int[][] a2) {
+        if (a1 == null && a2 == null) {
             return true;
         }
 
-        if (n1 == null || n2 == null) {
+        if (a1 == null || a2 == null) {
             return false;
         }
 
-        if (n1.length != n2.length) {
+        if (a1.length != a2.length) {
             return false;
         }
 
-        for (int i = 0; i < n1.length; i++) {
-            if (n1[i].length != n2[i].length) {
+        for (int i = 0; i < a1.length; i++) {
+            if (!equals(a1[i], a2[i])) {
                 return false;
             }
-            for (int j = 0; j < n1[i].length; j++) {
-                if (n1[i][j] != n2[i][j]) {
+        }
+
+        return true;
+    }
+
+    public static boolean equals(char[][] a1, char[][] a2) {
+        if (a1 == null && a2 == null) {
+            return true;
+        }
+
+        if (a1 == null || a2 == null) {
+            return false;
+        }
+
+        if (a1.length != a2.length) {
+            return false;
+        }
+
+        for (int i = 0; i < a1.length; i++) {
+            if (a1[i].length != a2[i].length) {
+                return false;
+            }
+            for (int j = 0; j < a1[i].length; j++) {
+                if (a1[i][j] != a2[i][j]) {
                     return false;
                 }
             }
@@ -177,9 +258,9 @@ public class Utils {
         return true;
     }
 
-    public static boolean equalsUnordered(int[] n1, int[] n2) {
-        List<Integer> list1 = Arrays.asList(intArrayToIntegerArray(n1));
-        List<Integer> list2 = Arrays.asList(intArrayToIntegerArray(n2));
+    public static boolean equalsUnordered(int[] a1, int[] a2) {
+        List<Integer> list1 = Arrays.asList(intArrayToIntegerArray(a1));
+        List<Integer> list2 = Arrays.asList(intArrayToIntegerArray(a2));
         Collections.sort(list1);
         Collections.sort(list2);
 
